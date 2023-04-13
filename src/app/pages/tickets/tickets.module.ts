@@ -11,7 +11,7 @@ import { AsideComponent } from './aside/aside.component';
 import {FormsModule} from "@angular/forms";
 import {DropdownModule} from "primeng/dropdown";
 import {BlocksStyleDirective} from "../../directive/blocks-style.directive";
-
+import {CalendarModule} from "primeng/calendar";
 
 
 @NgModule({
@@ -29,6 +29,7 @@ import {BlocksStyleDirective} from "../../directive/blocks-style.directive";
     MenubarModule,
     FormsModule,
     DropdownModule,
+    CalendarModule,
 
   ]
 })

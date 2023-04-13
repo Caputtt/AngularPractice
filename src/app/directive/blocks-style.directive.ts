@@ -52,12 +52,12 @@ export class BlocksStyleDirective implements OnInit, AfterViewInit, OnChanges {
 
     setTimeout(() => {
       this.renderComplete.emit(true);
-    })
+    }, 500);
   }
 
 
 
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(data: SimpleChanges): void {
   }
 
   initKeyUp(ev: KeyboardEvent): void {
@@ -68,17 +68,24 @@ export class BlocksStyleDirective implements OnInit, AfterViewInit, OnChanges {
     if (ev.key === 'ArrowRight') {
       this.index++;
       if (this.items[this.index]) {
-        (this.items[this.index] as HTMLElement).setAttribute('style', 'border: 2px solid red');
+        (this.items[this.index] as HTMLElement).setAttribute('style', 'border: 2px solid red;')
+      } else if (this.items.length - 1) {
+        this.index = this.items.length - 1;
+        (this.items[this.index] as HTMLElement).setAttribute('style', 'border: 2px solid red;')
       }
 
     } else if (ev.key === 'ArrowLeft') {
       this.index--;
       if (this.items[this.index]) {
-        (this.items[this.index] as HTMLElement).setAttribute('style', 'border: 2px solid red');
+        (this.items[this.index] as HTMLElement).setAttribute('style', 'border: 2px solid red;')
+      } else if (this.index == -1) {
+        this.index = 0;
+        (this.items[this.index] as HTMLElement).setAttribute('style', 'border: 2px solid red;')
       }
     }
 
-    this.activeElementIndex = this.index
+    this.activeElementIndex = this.index;
+    this.items[this.index].scrollIntoView({behavior: "smooth", block: "center", inline: "start"});
   }
 
   initStyle(index: number) {
@@ -87,4 +94,7 @@ export class BlocksStyleDirective implements OnInit, AfterViewInit, OnChanges {
     }
   }
 
+  updateItems(): void {
+    this.items = this.el.nativeElement.querySelectorAll(this.selector);
+  }
 }

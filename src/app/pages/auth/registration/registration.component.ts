@@ -48,7 +48,7 @@ export class RegistrationComponent implements OnInit {
       this.messageService.add({severity: 'success', summary: 'Регистрация прошла успешно'});
       if (this.selectedValue) {
         let userString = JSON.stringify(userObj);
-        window.localStorage.setItem('user', userString)
+        window.localStorage.setItem('user' + userObj.login, userString)
       }
     } else {
       this.messageService.add({severity: 'warn', summary: 'Пользователь уже зарегистрирован'});

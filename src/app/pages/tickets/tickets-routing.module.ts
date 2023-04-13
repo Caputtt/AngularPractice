@@ -18,10 +18,10 @@ const routes: Routes = [
         path: 'ticket/:id',
         loadChildren:() => import('../ticket-info/ticket-info.module').then(m=>m.TicketInfoModule)
       },
-      //   {
-      //     path: 'settings',
-      //     loadChildren: ()  => import('../settings/settings.module').then(m => m.SettingsModule)
-      //   },
+        {
+          path: 'settings',
+          loadChildren: ()  => import('../settings/settings.module').then(m => m.SettingsModule)
+        },
       //   {
       //     path: 'ticket',
       //     loadChildren: ()  => import('../ticket-info/ticket-info.module').then(m => m.TicketInfoModule)
@@ -32,6 +32,7 @@ const routes: Routes = [
       //   },
     ]
   },
+
 ];
 
 @NgModule({

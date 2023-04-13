@@ -1,3 +1,13 @@
+.search_block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1rem;
+  margin: 1rem;
+}
+.filtered_count {
+  font-weight: 700;
+}
 .ticket-item {
   height: 300px;
   border: 1px solid #6495ed;
@@ -7,13 +17,19 @@
   justify-content: space-between;
   & .ticket-title {
     padding: 2px;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: bold;
+    vertical-align: middle;
     text-align: center;
   }
 
   & img {
-    height: 200px;
-    border-radius: 0 0 15px 15px;
+    height: 220px;
+    border-radius: 15px 15px 0 0;
   }
+}
+.ticket-item:hover{
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: all .3s ease-in-out;
 }
